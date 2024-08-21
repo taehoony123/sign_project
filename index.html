@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
 </head>
 <body>
     <header>
@@ -27,13 +29,15 @@
                 <video id="uploaded-video" controls width="600" style="display:none;">
                     Your browser does not support the video tag.
                 </video>            
+                
+                
             </div>
             <div class="highlight-info">
                 <h2>수어학습 프로그램</h2>
                 <p>Andong university - KOREA</p>
                 <div class="highlight-badge">
                     <button id="upload-button">학습 시작하기</button>
-                    <button class="speaker-button">
+                    <button class="speaker-button" id = "tts-button">
                         <i class="fas fa-volume-up"></i>
                     </button>
                 </div>
@@ -41,7 +45,7 @@
                     <input type="file" id="video-upload" accept="video/*">
                 </form>
                 <div id="upload-status" style="margin-top: 20px;"></div> <!-- 업로드 상태 표시 영역 -->
-                <div id="prediction-result" style="margin-top: 20px;"></div> <!-- 예측 결과 표시 영역 -->
+                <div id="result" style="margin-top: 20px;"></div> <!-- 예측 결과 표시 영역 -->
             </div>
         </div>
     </section>
@@ -74,64 +78,6 @@
     </footer>
 
     <!-- JavaScript to handle file upload and prediction result -->
-    <script>
-        document.getElementById('upload-button').addEventListener('click', function() {
-            document.getElementById('video-upload').click();
-        });
-
-        document.getElementById('video-upload').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const formData = new FormData();
-                formData.append('file', file);
-
-                // 업로드 상태 업데이트
-                document.getElementById('upload-status').textContent = '동영상 업로드 중...';
-
-                // 서버로 파일 전송
-                fetch('/', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.videoUrl) {
-                        // 업로드된 비디오의 URL을 표시
-                        document.getElementById('uploaded-video').src = data.videoUrl;
-                        document.getElementById('uploaded-video').style.display = 'block';
-                        document.getElementById('upload-status').innerHTML = `<p>업로드 완료: <a href="${data.videoUrl}" target="_blank">${data.videoUrl}</a></p>`;
-                        
-                        // 예측 결과를 서버로부터 가져와 표시
-                        // POST 요청을 보내고 응답을 처리하는 fetch 호출
-                        fetch('/callback', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({ predicted_class: predicted_class })
-                        })
-                        .then(response => response.json()) // 서버의 응답을 JSON으로 변환
-                        .then(data => {
-                            if (data.status === 'success') {
-                                // 서버로부터 받은 예측 결과를 HTML에 출력
-                                document.getElementById('result').innerText = `Received predicted class: ${data.received_class}`;
-                            } else {
-                                console.error('Error:', data.message);
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                        });
-                    } else {
-                        document.getElementById('upload-status').textContent = '파일 업로드에 실패했습니다.';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    document.getElementById('upload-status').textContent = '파일 업로드 중 오류가 발생했습니다.';
-                });
-            }
-        });
-    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
