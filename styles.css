@@ -1,283 +1,323 @@
-/* 기본 스타일 */
+/* styles.css */
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background-color: #f5f5f5;
     color: #333;
+    line-height: 1.6;
 }
 
-/* 헤더 스타일 */
 header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #ec9898;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-    font-size: 1.5em;
     font-weight: 600;
-    color: #333; /* 기본 로고 색상 */
-    text-decoration: none; /* 링크의 밑줄 제거 */
-    transition: color 0.3s ease; /* 색상 변경이 부드럽게 이루어지도록 설정 */
-}
-
-
-.logo:hover {
-    color: #f5f5f5; /* 원하는 색상으로 변경 */
+    font-size: 24px;
+    color: #4285f4;
+    text-decoration: none;
 }
 
 nav ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
     gap: 20px;
 }
 
-nav ul li {
-    display: inline;
-}
 
 nav ul li a {
     text-decoration: none;
     color: #333;
     font-weight: 400;
-    transition: color 0.3s ease;
+    font-size: 16px;
 }
 
 nav ul li a:hover {
-    color: #f5f5f5;
+    color: #4285f4;
 }
 
-/* 메인 하이라이트 섹션 */
 .main-highlight {
-    display: flex;
-    justify-content: center; /* 전체 섹션을 가로로 중앙에 위치 */
-    align-items: center; /* 전체 섹션을 세로로 중앙에 위치 */
-    padding: 40px 20px;
-    background-color: #fafafa;
-    min-height: 60vh; /* 섹션의 최소 높이를 화면 전체 높이로 설정 */
-}
-
-.highlight-content {
-    display: flex;
-    justify-content: center; /* 내부 콘텐츠를 가로로 중앙에 정렬 */
-    align-items: center; /* 이미지와 텍스트를 세로로 정렬 */
-    gap: 20px; /* 이미지와 텍스트 사이의 간격 */
-    max-width: 1200px; /* 원하는 최대 너비로 설정 */
-}
-
-.highlight-image img {
-    max-width: 100%;
-    border-radius: 10px;
+    background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 40px;
+    margin: 20px auto;
+    max-width: 1000px;
+    display: flex;
+    gap: 40px;
+    align-items: center;
 }
-
-.highlight-info {
-    text-align: left; /* 텍스트를 왼쪽으로 정렬 */
-    max-width: 600px; /* 텍스트 영역의 최대 너비를 설정 */
-}
-
 
 .highlight-info h2 {
-    font-size: 3rem;
+    font-size: 28px;
+    color: #333;
     margin-bottom: 10px;
 }
 
 .highlight-info p {
-    font-size: 1.2rem;
-    margin: 10px 0;
+    color: #777;
+    margin-bottom: 20px;
 }
 
 .highlight-badge button {
-    display: block;
-    width: 50%;
-    padding: 10px;
-    border: 2px solid #ffffff;
-    background-color: #000000;
-    color: #ffffff;
-    font-size: 1rem;
-    font-weight: 600;
+    background-color: #4285f4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 16px;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
 }
 
 .highlight-badge button:hover {
-    background-color: #6d6d6d;
-    color: #ffffff;
-    
+    background-color: #357ae8;
+}
+
+.speaker-button {
+    background-color: #fbbc05;
+}
+
+.speaker-button:hover {
+    background-color: #e6a200;
+}
+.highlight-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.highlight-image video {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* FairyTail 섹션 스타일 */
+.FairyTail {
+    background-color: #ffffff;
+    max-width: 1000px;
+    margin: 20px auto;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.FairyTail h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.FairyTail form {
+    margin-bottom: 20px;
+}
+
+.FairyTail label {
+    font-size: 18px;
+    color: #555;
+}
+
+.FairyTail input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+    margin-right: 10px;
+}
+
+.FairyTail button[type="submit"] {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.FairyTail button[type="submit"]:hover {
+    background-color: #d9534f;
+}
+
+.FairyTail h2 {
+    font-size: 24px;
+    color: #333;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.FairyTail p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* 오디오 제어 버튼 (동화 읽어주기, 오디오 멈추기) */
+.audio-control-button {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.audio-control-button:hover {
+    background-color: #c9302c;
 }
 
 
 .instructions {
-    text-align: center;
-    padding: 20px;
-    background-color: #fafafa;
-    border-radius: 10px;
+    background-color: #ffffff;
+    max-width: 1000px; /* 섹션 너비 조정 */
+    margin: 20px auto;
+    padding: 40px;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 300px; /* 조정 가능한 최대 너비 */
-    margin: 0 auto;
+    text-align: center; /* 중앙 정렬 */
 }
 
 .instructions h2 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+    font-size: 28px;
     color: #333;
+    margin-bottom: 30px;
+    text-align: center; /* 제목 중앙 정렬 */
 }
 
 .instruction-step {
-    position: relative;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 버튼과 텍스트를 중앙 정렬 */
 }
 
 .instruction-step button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border: 2px solid #ec9898;
-    border-radius: 20px;
-    background-color: #fafafa;
-    color: #ec9898;
-    font-size: 1rem;
-    font-weight: 600;
+    background-color: #34a853;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 16px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
 }
 
 .instruction-step button:hover {
-    background-color: #ec9898;
-    color: #fafafa;
+    background-color: #2c8c44;
 }
 
 .instruction-step p {
-    font-size: 0.9rem;
-    color: #666;
-    margin-top: 10px;
+    font-size: 16px;
+    color: #555;
+    text-align: center; /* 텍스트 중앙 정렬 */
+    max-width: 600px; /* 텍스트의 최대 너비 */
 }
 
 .arrow-down {
-    font-size: 2rem;
-    color: #ec9898;
+    text-align: center;
+    font-size: 24px;
+    color: #bbb;
+    margin-bottom: 30px; /* 화살표와 다음 섹션 사이 여백 */
+}
+
+
+.arrow-down {
+    text-align: center;
     margin-bottom: 20px;
+    font-size: 20px;
+    color: #bbb;
 }
 
-
-
-/* 후보 섹션 스타일 */
-.nominees {
-    padding: 40px 20px;
-    background-color: #f4f4f4;
-}
-
-.nominees h2 {
-    text-align: center;
-    font-size: 2em;
-    margin-bottom: 30px;
-}
-
-.nominee-grid {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.nominee-item {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    padding: 20px;
-    width: calc(33% - 40px);
-}
-
-.nominee-item img {
-    max-width: 100%;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-.nominee-item h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
-
-.nominee-item p {
-    font-size: 0.9em;
-    color: #666;
-}
-
-/* 링크에 밑줄 제거 */
-.no-underline {
-    text-decoration: none;
-}
-
-
-/* 푸터 스타일 */
 footer {
-    padding: 20px;
+    background-color: #ffffff;
+    padding: 10px 20px;
     text-align: center;
-    background-color: #fff;
-    color: #999;
-    font-size: 0.9em;
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
+footer p {
+    margin: 0;
+    font-size: 14px;
+    color: #888;
+}
 
-/* 모바일 장치에서 레이아웃을 세로로 정렬 */
+/* 기본 스타일 (데스크탑) */
+
+/* 반응형 디자인 - 모바일 기기 */
 @media (max-width: 768px) {
-    .highlight-content {
-        flex-direction: column;
+    /* 전반적인 레이아웃 조정 */
+    body {
+        padding: 10px;
+    }
+
+    .main-highlight, .FairyTail, .instructions {
+        padding: 20px;
+        margin: 10px auto;
+        max-width: 100%; /* 모바일 화면에서 가로 폭을 100%로 설정 */
+        box-shadow: none; /* 박스 그림자 제거 */
+    }
+
+    h1, h2 {
+        font-size: 24px; /* 제목 크기 조정 */
+    }
+
+    p {
+        font-size: 16px; /* 본문 텍스트 크기 조정 */
+        line-height: 1.5; /* 줄 간격 조정 */
+    }
+
+    /* 버튼 크기 및 여백 조정 */
+    button {
+        width: 100%; /* 버튼을 전체 너비로 확장 */
+        padding: 12px;
+        font-size: 18px;
+        margin-bottom: 10px; /* 버튼 사이 간격 */
+    }
+
+    /* 리스트 중앙 정렬 조정 */
+    ul {
+        padding: 0;
+        margin: 10px auto;
         text-align: center;
     }
 
-    .highlight-info {
-        max-width: 100%;
-        margin: 20px 0;
+    ul li {
+        display: block; /* 세로로 나열 */
+        margin: 10px 0; /* 리스트 항목 간격 */
     }
 
-    .highlight-badge button {
-        width: 80%;
-        margin: 10px auto;
-    }
-
-    .instructions {
-        width: 90%;
+    ul li a {
+        padding: 10px 15px;
+        font-size: 18px;
     }
 }
 
-/* 더 작은 모바일 장치 (예: 휴대폰) */
-@media (max-width: 480px) {
-    header {
-        flex-direction: column;
-        text-align: center;
+@media (max-width: 768px) {
+    .instruction-step {
+        flex-direction: column; /* 요소들을 세로로 배치 */
+        align-items: center;
+        text-align: center; /* 텍스트 중앙 정렬 */
     }
 
-    .logo {
-        font-size: 1.2em;
-        margin-bottom: 15px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .main-highlight {
-        padding: 20px 10px;
-    }
-
-    .highlight-info h2 {
-        font-size: 2rem;
-    }
-
-    .instructions h2 {
-        font-size: 1.2rem;
-    }
-
-    .highlight-badge button {
-        width: 100%;
+    .highlight-image {
+        display: block;
+        margin: 20px 0; /* 상단과 하단에 여백 추가 */
     }
 }

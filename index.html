@@ -24,29 +24,62 @@
     </header>
 
     <section class="main-highlight">
-        <div class="highlight-content">
-            <div class="highlight-image">
-                <video id="uploaded-video" controls width="600" style="display:none;">
-                    Your browser does not support the video tag.
-                </video>            
-                
-                
+        <div class="highlight-info">
+            <h2>수어학습 프로그램</h2>
+            <p>Andong university - KOREA</p>
+            <div class="highlight-badge">
+                <button id="upload-button">학습 시작하기</button>
+                <button class="speaker-button" id="tts-button">
+                    <i class="fas fa-volume-up"></i>
+                </button>
             </div>
-            <div class="highlight-info">
-                <h2>수어학습 프로그램</h2>
-                <p>Andong university - KOREA</p>
-                <div class="highlight-badge">
-                    <button id="upload-button">학습 시작하기</button>
-                    <button class="speaker-button" id = "tts-button">
-                        <i class="fas fa-volume-up"></i>
-                    </button>
-                </div>
-                <form id="upload-form" style="display:none;">
-                    <input type="file" id="video-upload" accept="video/*">
-                </form>
-                <div id="upload-status" style="margin-top: 20px;"></div> <!-- 업로드 상태 표시 영역 -->
-                <div id="result" style="margin-top: 20px;"></div> <!-- 예측 결과 표시 영역 -->
+            <form id="upload-form" style="display:none;">
+                <input type="file" id="video-upload" accept="video/*">
+            </form>
+            <div id="upload-status" style="margin-top: 20px;"></div>
+            <div id="result" style="margin-top: 20px;"></div>
+        </div>
+        <div class="highlight-image">
+            <video id="uploaded-video" controls style="display:none;">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <section class = "FairyTail" data-story="{{ story|safe }}">
+        <h1>키워드를 입력하여 동화를 생성하세요</h1>
+        <form method="POST">
+            <label for="keyword">키워드:</label>
+            <input type="text" id="keyword" name="keyword" required>
+            <button type="submit">동화 생성</button>
+            
+        </form>
+
+        {% if story %}
+        <h2>생성된 동화:</h2>
+        <p>{{ story }}</p>
+        <button class="audio-control-button" onclick="readStory()">동화 읽어주기</button>
+        <button id="stop-button" class="audio-control-button">오디오 멈추기</button>
+
+        {% endif %}
+
+    </section>
+
+    <section>
+        <div class="container">
+            <h1>동요 생성기</h1>
+            <form method="POST">
+                <label for="prompt">동요 주제를 입력하세요:</label>
+                <input type="text" id="prompt" name="prompt" placeholder="예: 공원에서 노는 행복한 강아지" required>
+                <button id="generate-button">동요 생성</button>
+            </form>
+    
+            {% if song_lyrics %}
+            <div class="song-lyrics">
+                <h2>생성된 동요:</h2>
+                <p>{{ song_lyrics }}</p>
             </div>
+            {% endif %}
         </div>
     </section>
 
